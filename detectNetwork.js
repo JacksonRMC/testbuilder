@@ -12,6 +12,7 @@ var detectNetwork = function(cardNumber) {
     var firstTwo = parseInt(cardNumber.slice(0,2));
     var firstThree = parseInt(cardNumber.slice(0,3))
     var firstFour = parseInt(cardNumber.slice(0,4));
+    var firstSix = parseInt(cardNumber.slice(0,6));
    
     
 	  if(firstTwo === 38 || firstTwo === 39){
@@ -35,7 +36,7 @@ var detectNetwork = function(cardNumber) {
 	  	if(cardNumber.length === 16){ 
 	  	return "MasterCard";
 	  	}
-	  }else if((firstThree >= 644 && firstThree <= 649) || firstTwo === 65 || firstFour === 6011){
+	  }else if((firstThree >= 644 && firstThree <= 649) || firstTwo === 65 || firstFour === 6011 || (firstSix >= 622126 && firstSix <= 622925)){
 	  	if(cardNumber.length === 16 || cardNumber.length === 19){
 	  	return "Discover";
 	  	}
