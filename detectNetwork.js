@@ -8,12 +8,44 @@
 //   2. The number of digits in the number (called the length)
 
 var detectNetwork = function(cardNumber) {
-	var firstDigits = parseInt(cardNumber.slice(0,2));
-	if((firstDigits == 38 || firstDigits == 39) && cardNumber.length === 14){
-		return "Diner's Club";
-	} else if((firstDigits == 34 || firstDigits == 37) && cardNumber.length === 15){
-		return "American Express";
-	} 
+    var firstDigit = parseInt(cardNumber.slice(0,1));
+    var firstTwo = parseInt(cardNumber.slice(0,2));
+    var firstThree = parseInt(cardNumber.slice(0,3))
+    var firstFour = parseInt(cardNumber.slice(0,4));
+   
+    
+	  if(firstTwo === 38 || firstTwo === 39){
+	  	if(cardNumber.length === 14){
+	  	return "Diner's Club";
+	  	}
+	  } else if(firstTwo === 34 || firstTwo === 37){
+	  	if(cardNumber.length === 15){
+	  	return "American Express";
+	  	}
+	  }
+	  	else if(firstTwo === 49 || firstFour === 6333 || firstFour === 6331 || firstFour === 6759 || firstFour === 5641){
+	  	if(cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19){
+	  	return "Switch";
+	  	}
+	  } else if(firstDigit === 4){
+	  	if(cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length ===19){
+	  	return "Visa";
+	  	}
+	  } else if((firstTwo >= 51 && firstTwo <= 55)){
+	  	if(cardNumber.length === 16){ 
+	  	return "MasterCard";
+	  	}
+	  }else if((firstThree >= 644 && firstThree <= 649) || firstTwo === 65 || firstFour === 6011){
+	  	if(cardNumber.length === 16 || cardNumber.length === 19){
+	  	return "Discover";
+	  	}
+	  }else if(firstTwo === 62){
+	  	if(cardNumber.length >= 16 && cardNumber.length <= 19){
+	  	return "China UnionPay";
+	  }
+	  }else if((firstTwo === 50 || (firstTwo >= 56 && firstTwo <= 58) || firstDigit === 6)){
+	  	if(cardNumber.length >= 12 && cardNumber.length <= 19){
+	  	return "Maestro";
+	  	}
+	  }
 };
-
-
