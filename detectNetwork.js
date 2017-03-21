@@ -24,13 +24,13 @@ var detectNetwork = function(cardNumber) {
 	  	return "American Express";
 	  	}
 	  }
-	  	// else if(firstTwo === 49 || firstFour === 6333 || firstFour === 6331 || firstFour === 6759 || firstFour === 5641){
-	  	// if(cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19){
-	  	// return "Switch";
-	  	// }
-	  //} 
+	  	else if(firstTwo === 49 || firstThree === 633 || firstFour === 6331 || firstFour === 6759 || firstFour === 5641){
+	  	if(cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19){
+	  	return "Switch";
+	  	}
+	  } 
 	  else if(firstDigit === 4){
-	  	if(cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length ===19){
+	  	if(cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19){
 	  	return "Visa";
 	  	}
 	  } else if((firstTwo >= 51 && firstTwo <= 55)){
@@ -42,11 +42,11 @@ var detectNetwork = function(cardNumber) {
 	  	return "Discover";
 	  	}
 	  }
-	  // else if(firstTwo === 62){
-	  // 	if(cardNumber.length >= 16 && cardNumber.length <= 19){
-	  // 	return "China UnionPay";
-	  // }
-	  //}
+	  else if((firstSix > 622125 && firstSix < 622927) || (firstFour > 6281 && firstFour < 6289) || (firstThree > 623 && firstThree < 627)){
+	  	if(cardNumber.length >= 16 && cardNumber.length <= 19){
+	  	return "China UnionPay";
+	  }
+	  }
 	  else if((firstFour === 5018 || (firstFour === 5020 || firstFour === 5038) || firstFour === 6304)){
 	  	if(cardNumber.length >= 12 && cardNumber.length <= 19){
 	  	return "Maestro";
