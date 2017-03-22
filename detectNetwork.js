@@ -24,7 +24,7 @@ var detectNetwork = function(cardNumber) {
 	  	return "American Express";
 	  	}
 	  }
-	  	else if(firstTwo === 49 || firstThree === 633 || firstFour === 6331 || firstFour === 6759 || firstFour === 5641){
+	  	else if(firstTwo === 49 || firstFour === 6333 || firstFour === 6331 || firstFour === 6759 || firstFour === 5641){
 	  	if(cardNumber.length === 16 || cardNumber.length === 18 || cardNumber.length === 19){
 	  	return "Switch";
 	  	}
