@@ -43,45 +43,33 @@ var FILL_ME_IN = 'Fill this value in';
 // });
 describe('Diner\'s Club', function() {
   // Be careful, tests can have bugs too...
+  var should = chai.should();
 
-  it('has a prefix of 38 and a length of 14', function() {
-  
- 
-    if (detectNetwork('38345678901234') !== 'Diner\'s Club') {
-      throw new Error('Test failed');
-    }
+  it('has a prefix of 39 and a length of 14', function(){
+    detectNetwork('39345678901237').should.equal("Diner's Club")
+  });
+    it('has a prefix of 38 and a length of 14', function(){
+    detectNetwork('38345678901234').should.equal("Diner's Club")
   });
 
-  it('has a prefix of 39 and a length of 14', function() {
-    if (detectNetwork('39345678901237') !== 'Diner\'s Club') {
-      throw new Error('Test failed');
-    }
- 
-  });
 });
+
 
 
 describe('American Express', function() {
   // It can get annoying to keep typing the if/throw, so here is a
   // helper function to throw an error if the input statement isn't true. 
-  var assert = function(isTrue) {
-    if(!isTrue) {
-      throw new Error('Test failed');
-    }
- 
-  };
+  var should = chai.should();
 
-  it('has a prefix of 34 and a length of 15', function() {
-    assert(detectNetwork('343456789012345') === 'American Express');
+  it('has a prefix of 4903 and a length of 15', function(){
+    detectNetwork('343456789012345').should.equal("American Express")
+  });
+    it('has a prefix of 34 and a length of 15', function(){
+    detectNetwork('373456789012345').should.equal("American Express")
   });
 
-  it('has a prefix of 37 and a length of 15', function() {
-    assert(detectNetwork('373456789012345') === 'American Express');
-  });
 });
 
-
-//must have prefixes 4903, 4905, 4911, 4936, 564182, 633110, 633, 6759, length 16, 18, 19
 
 describe('Switch', function(){
   it('has a prefix of 4903 and a length of 16', function(){
@@ -179,30 +167,35 @@ describe('Switch', function(){
 });
 
 
-
 describe('Visa', function() {
   // Chai is an entire library of helper functions for tests!
   // Chai provides an assert that acts the same as our previous assert.
   // Search the documentation to figure out how to access it. 
   //   http://chaijs.com/
-  var assert = function(isTrue) {
-    if(!isTrue) {
-      throw new Error('Test failed');
-    }
- 
-  };
+  var should = chai.should();
 
-  it('has a prefix of 4 and a length of 13', function() {
-    assert(detectNetwork('4123456789012') === 'Visa');
+  it('has a prefix of 4903 and a length of 13', function(){
+    detectNetwork('4444456789098').should.equal("Visa")
+  });
+    it('has a prefix of 4 and a length of 13', function(){
+    detectNetwork('4456456789098').should.equal("Visa")
+  });
+     it('has a prefix of 4 and a length of 13', function(){
+    detectNetwork('4765456789034').should.equal("Visa")
   });
 
-  it('has a prefix of 4 and a length of 16', function() {
-    assert(detectNetwork('4123456789012345') === 'Visa');
-  });
 
-  it('has a prefix of 4 and a length of 19', function() {
-    assert(detectNetwork('4123456789012345678') === 'Visa');
-  });
+  // it('has a prefix of 4 and a length of 13', function() {
+  //   assert(detectNetwork('4123456789012') === 'Visa');
+  // });
+
+  // it('has a prefix of 4 and a length of 16', function() {
+  //   assert(detectNetwork('4123456789012345') === 'Visa');
+  // });
+
+  // it('has a prefix of 4 and a length of 19', function() {
+  //   assert(detectNetwork('4123456789012345678') === 'Visa');
+  // });
 });
 
 describe('MasterCard', function() {
@@ -328,9 +321,10 @@ for (var prefix = 622126; prefix < 622926; prefix++) {
      });      
   }
 }
+//China UnionPay always has a prefix of 622126-622925, 624-626, or 6282-6288 and a length of 16-19.
 
 // 92 - 84
-for (var k = 624; k < 626; k++) {
+for (var k = 624; k <= 626; k++) {
     for(var x = 16; x <= 19; x++){    
      it('has a prefix of ' + k + ' and a length of ' + x, function(){
       var num = k + '9812346890876';
@@ -339,8 +333,17 @@ for (var k = 624; k < 626; k++) {
      });      
   }
 }
+
+// for(var x = 16; x <= 19; x++){    
+//     it('has a prefix of 626 and a length of ' + x, function(){
+//       var num = '6269812346890876';
+//       console.log(num)
+//       detectNetwork(num).should.equal("China UnionPay");
+//     });      
+// }
+
 //this test should run 108 - 84  
-for (var j = 6282; j < 6288; j++) {
+for (var j = 6282; j <= 6288; j++) {
   for(var i = 16; i <= 19; i++){
      it('has a prefix of ' + j + ' and a length of ' + i, function(){
       var num = j + '941234567890'; 
@@ -349,6 +352,14 @@ for (var j = 6282; j < 6288; j++) {
      });      
   }
 }
+  
+  // for(var i = 16; i <= 19; i++){
+  //    it('has a prefix of 6288 and a length of ' + i, function(){
+  //     var num = '6288941234567890'; 
+  //      console.log(num)
+  //     detectNetwork(num).should.equal("China UnionPay");
+  //    });      
+  // }
 });
 
 
