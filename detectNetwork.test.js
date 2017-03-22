@@ -61,7 +61,7 @@ describe('American Express', function() {
   // helper function to throw an error if the input statement isn't true. 
   var should = chai.should();
 
-  it('has a prefix of 4903 and a length of 15', function(){
+  it('has a prefix of 34 and a length of 15', function(){
     detectNetwork('343456789012345').should.equal("American Express")
   });
     it('has a prefix of 34 and a length of 15', function(){
@@ -291,7 +291,7 @@ for (var prefix = 622126; prefix < 622926; prefix++) {
 }
 
 for (var k = 624; k <= 626; k++) {   
-    var num = k + '123456789011';
+    var num = k + ' 123456789011';
     for(var x = 0; x < 4; x++){
       (function(currentPrefix, currentLength) {
       num += x;
